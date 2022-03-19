@@ -16,7 +16,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private  lateinit var tvEmail : TextView
     private  lateinit var tvPassword : TextView
     private  lateinit var btnLogin : Button
-//    private lateinit var loginLayout : androidx.constraintlayout.widget.ConstraintLayout
+    private lateinit var tvforgotpass: TextView
+
     companion object {
        var AuthUsername = "EXTRA_NAME"
         var Authpassword = "EXTRA_PASS"
@@ -43,6 +44,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //        loginLayout.setBackgroundColor(Color.parseColor("#6f551c"))
         tvClickSign = findViewById(R.id.tv_clicksignUp)
         tvClickSign.setOnClickListener(this)
+        tvforgotpass = findViewById(R.id.tv_ForgotPass)
+        tvforgotpass.setOnClickListener(this)
 
         tvEmail = findViewById(R.id.edt_loginUser)
         tvPassword = findViewById(R.id.edt_loginPass)
@@ -60,23 +63,25 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 print(Password)
 
                 var empty = false
-                var auth = false
 
-                if(Username.isEmpty() || Username != AuthUsername ){
+                if(Username.isEmpty()  ){
                     empty = true
-                    auth = true
                     tvEmail.error = "TextField Tidak Boleh kosong"
                 }
-                if(Password.isEmpty() ||  Password != Authpassword){
+
+                if(Password.isEmpty()){
                     empty = true
-                    auth = true
                     tvPassword.error = "TextField Tidak Boleh kosong"
                 }
 
-                if (empty != true && auth != true){
+                if (empty != true ){
                     val mHomepage = Intent(this@MainActivity , HomePage::class.java)
                     startActivity(mHomepage)
                 }
+            }
+            R.id.tv_ForgotPass -> {
+                val forgotPage = Intent(this@MainActivity, ForgotpassActivity::class.java)
+                startActivity(forgotPage)
             }
             R.id.tv_clicksignUp -> {
                 val mSignupPage = Intent(this@MainActivity , SignUpActivity::class.java)

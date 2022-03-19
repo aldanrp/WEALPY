@@ -28,7 +28,6 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_sign_up)
 
         tvName = findViewById(R.id.edt_RegisName)
-        tvUsername = findViewById(R.id.edt_RegisUsername)
         tvEmail = findViewById(R.id.edt_RegisEmail)
         tvPassword = findViewById(R.id.edt_RegisPassword)
         tvComfirmpass = findViewById(R.id.edt_RegisConfirpass)
@@ -40,7 +39,6 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         when (v.id){
             R.id.btn_Signup -> {
-                val sUsername = tvUsername.text.toString().trim()
                 val sName = tvName.text.toString().trim()
                 val sEmail = tvEmail.text.toString().trim()
                 val sPassword = tvPassword.text.toString().trim()
